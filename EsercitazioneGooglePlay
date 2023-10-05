@@ -1,0 +1,119 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMwESCNbg5EpwHSqcEoMx5G",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/SANDITS/PrimaRepository/blob/main/EsercitazioneGooglePlay\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "BVHEGTnG7l_d"
+      },
+      "outputs": [],
+      "source": [
+        "!pip install -qq google-play-scraper"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install -qq -U watermark"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JPKQZoCG9Jol",
+        "outputId": "aba0b657-855f-4afa-ccdc-90e12b0ae032"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.6 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.9/1.6 MB\u001b[0m \u001b[31m28.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.6/1.6 MB\u001b[0m \u001b[31m33.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import json\n",
+        "import pandas as pd\n",
+        "from tqdm import tqdm\n",
+        "\n",
+        "import seaborn as sns\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "from pygments import highlight\n",
+        "from pygments.lexers import JsonLexer\n",
+        "from pygments.formatters import TerminalFormatter\n",
+        "\n",
+        "from google_play_scraper import Sort, reviews, app\n",
+        "\n",
+        "%matplotlib inline\n",
+        "%config InlineBackend.figure_format='retina'\n",
+        "\n",
+        "sns.set(style='whitegrid', palette='muted', font_scale=1.2)"
+      ],
+      "metadata": {
+        "id": "X57BbBbG-Ova"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "app_packages = [\n",
+        "  'com.anydo',\n",
+        "  'com.todoist',\n",
+        "  'com.ticktick.task',\n",
+        "  'com.habitrpg.android.habitica',\n",
+        "  'cc.forestapp',\n",
+        "  'com.oristats.habitbull',\n",
+        "  'com.levor.liferpgtasks',\n",
+        "  'com.habitnow',\n",
+        "  'com.microsoft.todos',\n",
+        "  'prox.lab.calclock',\n",
+        "  'com.gmail.jmartindev.timetune',\n",
+        "  'com.artfulagenda.app',\n",
+        "  'com.tasks.android',\n",
+        "  'com.appgenix.bizcal',\n",
+        "  'com.appxy.planner'\n",
+        "]"
+      ],
+      "metadata": {
+        "id": "-syM9QMe-p0E"
+      },
+      "execution_count": 4,
+      "outputs": []
+    }
+  ]
+}
